@@ -43,6 +43,13 @@ public class App {
             }
 
             System.out.println("결과: " + result);
+            //연산 결과가 10개를 초과하는 경우 가장 먼저 저장된 결과를 삭제하고 새로운 연산 결과가 저장
+            if (index >= resultNumbers.length) {
+                for (int i = 1; i < resultNumbers.length; i++) {
+                    resultNumbers[i - 1] = resultNumbers[i];
+                }
+                index--;
+            }
             //연산의 결과를 배열에 저장
             resultNumbers[index] = result;
             //index를 증가
@@ -55,6 +62,5 @@ public class App {
                 break;
             }
         }
-
     }
 }
