@@ -1,12 +1,13 @@
 package calculator;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Calculator calculator = new Calculator();
+        Calculator calculator = new Calculator(new LinkedList<>());
 
         //반복문 사용 해서 연산을 반복
         while (true) {

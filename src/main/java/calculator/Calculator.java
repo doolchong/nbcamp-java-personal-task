@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.LinkedList;
 import java.util.Queue;
 import java.util.regex.Pattern;
 
@@ -8,7 +7,11 @@ public class Calculator {
     private static final String OPERATION_REG = "[+\\-*/]";
 
     //가장 먼저 저장된 연산 결과부터 삭제해야 하므로 Queue에 저장
-    private Queue<Integer> results = new LinkedList<>();
+    private Queue<Integer> results;
+
+    public Calculator(Queue<Integer> results) {
+        this.results = results;
+    }
 
     public int calculate(int num1, int num2, char operator) throws BadInputException {
         //연산자의 입력이 잘못된 경우
