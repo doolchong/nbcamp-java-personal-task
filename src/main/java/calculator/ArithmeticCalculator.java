@@ -6,6 +6,18 @@ public class ArithmeticCalculator extends Calculator {
     private static final String OPERATION_REG = "[+\\-*/]";
     //가장 먼저 저장된 연산 결과부터 삭제해야 하므로 Queue에 저장
 
+    private final AddOperator addOperation;
+    private final SubtractOperator subtractOperation;
+    private final MultiplyOperator multiplyOperation;
+    private final DivideOperator divideOperation;
+
+    public ArithmeticCalculator() {
+        addOperation = new AddOperator();
+        subtractOperation = new SubtractOperator();
+        multiplyOperation = new MultiplyOperator();
+        divideOperation = new DivideOperator();
+    }
+
     public double calculate(int num1, int num2, char operator) throws BadInputException {
         double result = 0;
 
@@ -20,10 +32,10 @@ public class ArithmeticCalculator extends Calculator {
 
         //연산자에 따른 사칙연산 구현
         result = switch (operator) {
-            case '+' -> num1 + num2;
-            case '-' -> num1 - num2;
-            case '*' -> num1 * num2;
-            case '/' -> num1 / num2;
+            case '+' -> addOperation.operate(num1, num2);
+            case '-' -> subtractOperation.operate(num1, num2);
+            case '*' -> multiplyOperation.operate(num1, num2);
+            case '/' -> divideOperation.operate(num1, num2);
             default -> result;
         };
         //연산의 결과를 Queue에 저장
