@@ -6,7 +6,8 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Calculator calculator = new Calculator();
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
 
         //반복문 사용 해서 연산을 반복
         while (true) {
@@ -25,7 +26,7 @@ public class App {
 
                 //예외 처리용
                 try {
-                    System.out.println("결과: " + calculator.calculate(num1, num2, operator));
+                    System.out.println("결과: " + arithmeticCalculator.calculate(num1, num2, operator));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -34,33 +35,33 @@ public class App {
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
                 String remove = scanner.next();
                 if (remove.equals("remove")) {
-                    System.out.println(calculator.a_remove() + "(이)가 삭제되었습니다.");
+                    System.out.println(arithmeticCalculator.deQueue(mode) + "(이)가 삭제되었습니다.");
                 }
 
                 //inquiry 입력 시 저장된 연산 결과 전부를 출력
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 String inquiry = scanner.next();
                 if (inquiry.equals("inquiry")) {
-                    System.out.println(calculator.a_inquiry());
+                    System.out.println(arithmeticCalculator.inquiry(mode));
                 }
             } else if (mode == 1) {
                 System.out.print("원의 반지름을 입력하세요: ");
                 int radius = scanner.nextInt();
 
-                System.out.println("결과: " + calculator.calculateCircleArea(radius));
+                System.out.println("결과: " + circleCalculator.calculate(radius));
 
                 //remove 입력 시 가장 먼저 저장된 연산 결과를 삭제
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
                 String remove = scanner.next();
                 if (remove.equals("remove")) {
-                    System.out.println(calculator.c_remove() + "(이)가 삭제되었습니다.");
+                    System.out.println(circleCalculator.deQueue(mode) + "(이)가 삭제되었습니다.");
                 }
 
                 //inquiry 입력 시 저장된 연산 결과 전부를 출력
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 String inquiry = scanner.next();
                 if (inquiry.equals("inquiry")) {
-                    System.out.println(calculator.c_inquiry());
+                    System.out.println(circleCalculator.inquiry(mode));
                 }
             }
 
