@@ -6,8 +6,8 @@ public class App {
 
     public static void main(String[] args) throws BadInputException {
         Scanner scanner = new Scanner(System.in);
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
-        CircleCalculator circleCalculator = new CircleCalculator();
+        ArithmeticCalculator<Number> arithmeticCalculator = new ArithmeticCalculator<>();
+        CircleCalculator<Number> circleCalculator = new CircleCalculator<>();
 
         //반복문 사용 해서 연산을 반복
         while (true) {
@@ -17,9 +17,9 @@ public class App {
 
             if (mode == 0) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                int num1 = scanner.nextInt();
+                Number num1 = getNumberInput(scanner);
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                int num2 = scanner.nextInt();
+                Number num2 = getNumberInput(scanner);
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 String operator = scanner.next();
@@ -28,7 +28,7 @@ public class App {
 
                 try {
                     System.out.println("결과: " + arithmeticCalculator.calculate(num1, num2, operatorType));
-                }catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
 
@@ -47,7 +47,7 @@ public class App {
                 }
             } else if (mode == 1) {
                 System.out.print("원의 반지름을 입력하세요: ");
-                int radius = scanner.nextInt();
+                Number radius = getNumberInput(scanner);
 
                 System.out.println("결과: " + circleCalculator.calculate(radius));
 
@@ -72,6 +72,15 @@ public class App {
             if (exit.equals("exit")) {
                 break;
             }
+        }
+    }
+
+    private static Number getNumberInput(Scanner scanner) {
+        String input = scanner.next();
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return Double.parseDouble(input);
         }
     }
 }

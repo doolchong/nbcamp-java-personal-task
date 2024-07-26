@@ -1,5 +1,5 @@
 package calculator;
 
-public interface OperatorInterface {
-    public abstract int operate(int num1, int num2);
+public interface OperatorInterface<T extends Number> {
+    public abstract T operate(T num1, T num2);
 }
