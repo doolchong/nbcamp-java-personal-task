@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BadInputException {
         Scanner scanner = new Scanner(System.in);
         ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
         CircleCalculator circleCalculator = new CircleCalculator();
@@ -22,12 +22,13 @@ public class App {
                 int num2 = scanner.nextInt();
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
-                char operator = scanner.next().charAt(0);
+                String operator = scanner.next();
 
-                //예외 처리용
+                OperatorType operatorType = OperatorType.contains(operator.toUpperCase());
+
                 try {
-                    System.out.println("결과: " + arithmeticCalculator.calculate(num1, num2, operator));
-                } catch (Exception e) {
+                    System.out.println("결과: " + arithmeticCalculator.calculate(num1, num2, operatorType));
+                }catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
 
