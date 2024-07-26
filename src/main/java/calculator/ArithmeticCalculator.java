@@ -6,8 +6,6 @@ public class ArithmeticCalculator extends Calculator {
     private static final String OPERATION_REG = "[+\\-*/%]";
     //가장 먼저 저장된 연산 결과부터 삭제해야 하므로 Queue에 저장
 
-    private OperatorInterface operator = new AddOperator();
-
     public double calculate(int num1, int num2, char operator) throws BadInputException {
         double result = 0;
 
@@ -23,19 +21,19 @@ public class ArithmeticCalculator extends Calculator {
         //연산자에 따른 사칙연산 구현
         switch (operator) {
             case '+':
-                this.operator = new AddOperator();
+                this.operator = OperatorType.ADD.getOperator();
                 break;
             case '-':
-                this.operator = new SubtractOperator();
+                this.operator = OperatorType.SUBTRACT.getOperator();
                 break;
             case '*':
-                this.operator = new MultiplyOperator();
+                this.operator = OperatorType.MULTIPLY.getOperator();
                 break;
             case '/':
-                this.operator = new DivideOperator();
+                this.operator = OperatorType.DIVIDE.getOperator();
                 break;
             case '%':
-                this.operator = new ModOperator();
+                this.operator = OperatorType.MODULO.getOperator();
                 break;
         }
 

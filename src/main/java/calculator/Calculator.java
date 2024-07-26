@@ -8,7 +8,7 @@ public abstract class Calculator {
     protected final Queue<Double> circleQueue = new LinkedList<>();
     protected final Queue<Double> arithmeticQueue = new LinkedList<>();
 
-    private OperatorInterface operator = new AddOperator();
+    protected OperatorInterface operator;
 
     public Queue<Double> getCircleQueue() {
         return circleQueue;
