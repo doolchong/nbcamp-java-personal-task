@@ -15,10 +15,10 @@ public class ArithmeticCalculator<T extends Number> extends Calculator {
 
         this.operator = operator.getOperator();
 
-        result = (T) this.operator.operate(num1.doubleValue(), num2.doubleValue());
+        result = (T) this.operator.operate(num1, num2);
 
         // 연산의 결과를 Queue에 저장
-        this.arithmeticQueue.add(result.doubleValue());
+        this.arithmeticQueue.add(result);
 
         return result;
     }

@@ -9,8 +9,8 @@ public class CircleCalculator<T extends Number> extends Calculator {
             circleQueue.add((Integer) radius * (Integer) radius * PI);
             return (T) (Double) ((Integer) radius * (Integer) radius * PI);
         } else {
-            circleQueue.add((Double) radius.doubleValue() * (Double) radius.doubleValue() * PI);
-            return (T) (Double) ((Double) radius.doubleValue() * (Double) radius.doubleValue() * PI);
+            circleQueue.add((Double) radius * (Double) radius * PI);
+            return (T) (Double) ((Double) radius * (Double) radius * PI);
         }
     }
 

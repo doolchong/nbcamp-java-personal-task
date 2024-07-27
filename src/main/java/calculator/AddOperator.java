@@ -6,7 +6,7 @@ public class AddOperator<T extends Number> implements OperatorInterface<T> {
         if (num1 instanceof Integer && num2 instanceof Integer) {
             return (T) (Integer) ((Integer) num1 + (Integer) num2);
         } else {
-            return (T) (Double) ((Double) num1.doubleValue() + (Double) num2.doubleValue());
+            return (T) (Double) ((Double) num1 + (Double) num2);
         }
     }
 }
