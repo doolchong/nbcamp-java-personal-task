@@ -1,10 +1,10 @@
 package calculator;
 
-import java.util.regex.Pattern;
+import java.util.List;
+import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class ArithmeticCalculator<T extends Number> extends Calculator {
-    private static final String OPERATION_REG = "[+\\-*/%]";
-
     public T calculate(T num1, T num2, OperatorType operator) throws BadInputException {
         T result;
 
@@ -22,6 +22,13 @@ public class ArithmeticCalculator<T extends Number> extends Calculator {
 
         return result;
     }
+
+    public List<T> printResultsGreaterThan(double threshold) {
+        // 입력값보다 큰 결과만 필터링
+        return (List<T>) arithmeticQueue.stream().filter(result -> Double.parseDouble(result.toString())> threshold).collect(Collectors.toList());
+        //result가 제네릭 타입이라 그런지 비교 연산자 '>'를 사용할 수 없어 result를 문자열로 바꾸고 그것을 다시 double형으로 형변환해서 비교 
+    }
+
 
     public void setOperator(OperatorInterface operator) {
         this.operator = operator;

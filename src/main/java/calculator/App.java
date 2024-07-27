@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class App {
@@ -21,7 +22,7 @@ public class App {
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 Number num2 = getNumberInput(scanner);
 
-                System.out.print("사칙연산 기호를 입력하세요: ");
+                System.out.print("연산자를 입력하세요[ADD, SUBTRACT, MULTIPLY, DIVIDE, MODULO]:");
                 String operator = scanner.next();
 
                 OperatorType operatorType = OperatorType.contains(operator.toUpperCase());
@@ -43,7 +44,15 @@ public class App {
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 String inquiry = scanner.next();
                 if (inquiry.equals("inquiry")) {
-                    System.out.println(arithmeticCalculator.inquiry(mode));
+                    System.out.println("입력한 값보다 큰 결과 값 들을 출력하시겠습니까? (Yes 입력 시 조회)");
+                    String answer = scanner.next();
+                    if(answer.equals("Yes")){
+                        System.out.println("값을 입력하세요.");
+                        double threshold = getNumberInput(scanner).doubleValue();
+                        System.out.println(arithmeticCalculator.printResultsGreaterThan(threshold).toString());
+                    } else {
+                        System.out.println(arithmeticCalculator.inquiry(mode));
+                    }
                 }
             } else if (mode == 1) {
                 System.out.print("원의 반지름을 입력하세요: ");
