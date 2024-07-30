@@ -4,9 +4,9 @@ public class DivideOperator<T extends Number> implements OperatorInterface<T> {
     @Override
     public T operate(T num1, T num2) {
         if (num1 instanceof Integer && num2 instanceof Integer) {
-            return (T) (Integer) ((Integer) num1 / (Integer) num2);
+            return (T) (Integer) (num1.intValue() / num2.intValue());
         } else {
-            return (T) (Double) ((Double) num1 / (Double) num2);
+            return (T) (Double) (num1.doubleValue() / num2.doubleValue());
         }
     }
 }

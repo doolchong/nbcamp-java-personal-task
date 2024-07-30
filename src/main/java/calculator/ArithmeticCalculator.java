@@ -25,8 +25,8 @@ public class ArithmeticCalculator<T extends Number> extends Calculator {
 
     public List<T> printResultsGreaterThan(double threshold) {
         // 입력값보다 큰 결과만 필터링
-        return (List<T>) arithmeticQueue.stream().filter(result -> Double.parseDouble(result.toString())> threshold).collect(Collectors.toList());
-        //result가 제네릭 타입이라 그런지 비교 연산자 '>'를 사용할 수 없어 result를 문자열로 바꾸고 그것을 다시 double형으로 형변환해서 비교 
+        return (List<T>) arithmeticQueue.stream().filter(result -> Double.parseDouble(result.toString()) > threshold).collect(Collectors.toList());
+        //result가 제네릭 타입이라 그런지 비교 연산자 '>'를 사용할 수 없어 result를 문자열로 바꾸고 그것을 다시 double형으로 형변환해서 비교
     }
 
 

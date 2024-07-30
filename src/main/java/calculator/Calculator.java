@@ -13,7 +13,6 @@ public abstract class Calculator<T extends Number> {
     public Queue<T> getCircleQueue() {
         return circleQueue;
     }
-
     public Queue<T> getArithmeticQueue() {
         return arithmeticQueue;
     }

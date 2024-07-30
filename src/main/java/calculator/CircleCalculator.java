@@ -7,10 +7,10 @@ public class CircleCalculator<T extends Number> extends Calculator {
     public T calculate(T radius) {
         if (radius instanceof Integer) {
             circleQueue.add((Integer) radius * (Integer) radius * PI);
-            return (T) (Double) ((Integer) radius * (Integer) radius * PI);
+            return (T) (Double) (radius.doubleValue() * radius.doubleValue() * PI);
         } else {
             circleQueue.add((Double) radius * (Double) radius * PI);
-            return (T) (Double) ((Double) radius * (Double) radius * PI);
+            return (T) (Double) (radius.doubleValue() * radius.doubleValue() * PI);
         }
     }
 

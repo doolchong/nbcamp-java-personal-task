@@ -22,7 +22,7 @@ public class App {
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 Number num2 = getNumberInput(scanner);
 
-                System.out.print("연산자를 입력하세요[ADD, SUBTRACT, MULTIPLY, DIVIDE, MODULO]:");
+                System.out.print("연산자를 입력하세요[ADD, SUBTRACT, MULTIPLY, DIVIDE, MODULO]: ");
                 String operator = scanner.next();
 
                 OperatorType operatorType = OperatorType.contains(operator.toUpperCase());
